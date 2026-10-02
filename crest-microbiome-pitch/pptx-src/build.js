@@ -210,16 +210,14 @@ function slide(master, section) { return pres.addSlide({ masterName: master, sec
   const role = ['Build emotional relevance', 'Explain the difference', 'Encourage trial', 'Convert to purchase', 'Build repeat & community'];
   const how = ['Wellness creators + Meta ads', 'Dentists & hygienists', 'Dental samples + marathon expos', 'Retail links, coupons, shelf', 'Same creators + customer stories'];
   const out = ['Relevance', 'Understanding', 'Trial', 'First purchase', 'Repeat purchase'];
+  const cell = (text, y, h, o) => s.addText(text, { shape: pres.shapes.ROUNDED_RECTANGLE, rectRadius: I(16), x: I(cx(i0)), y: I(y), w: I(cw), h: I(h), margin: [0, 10, 0, 10], valign: 'middle', align: 'center', fit: 'none', wrap: true, objectName: 'crest-cell-' + (++objN), ...o });
+  let i0 = 0;
   for (let i = 0; i < 5; i++) {
-    BOX(s, cx(i), 256, cw, 176, { fill: NAVY, r: 20 });
-    T(s, LETTERS[i], cx(i), 270, cw, 104, { px: 96, fontFace: HEAD, bold: true, color: IVORY, align: 'center', valign: 'middle', lineSpacingMultiple: 1 });
-    T(s, names[i], cx(i), 376, cw, 40, { px: 28, bold: true, color: TLIGHT, align: 'center' });
-    BOX(s, cx(i), 444, cw, 116, { fill: CARD, line: HAIR, r: 16 });
-    T(s, role[i], cx(i) + 20, 444, cw - 40, 116, { px: 28, bold: true, color: NAVY, valign: 'middle' });
-    BOX(s, cx(i), 572, cw, 150, { fill: CARD, line: HAIR, r: 16 });
-    T(s, how[i], cx(i) + 20, 572, cw - 40, 150, { px: 28, valign: 'middle' });
-    BOX(s, cx(i), 734, cw, 84, { fill: PALE, r: 16 });
-    T(s, out[i], cx(i) + 20, 734, cw - 40, 84, { px: 28, bold: true, color: NAVY, valign: 'middle' });
+    i0 = i;
+    cell([{ text: LETTERS[i], options: { fontFace: HEAD, fontSize: 48, bold: true, color: IVORY, breakLine: true } }, { text: names[i], options: { fontSize: 14, bold: true, color: TLIGHT } }], 256, 176, { fill: { color: NAVY }, line: { type: 'none' }, rectRadius: I(20) });
+    cell(role[i], 444, 116, { fontSize: 14, bold: true, color: NAVY, fill: { color: CARD }, line: { color: HAIR, width: 0.75 } });
+    cell(how[i], 572, 150, { fontSize: 14, color: BODY, fill: { color: CARD }, line: { color: HAIR, width: 0.75 } });
+    cell(out[i], 734, 84, { fontSize: 14, bold: true, color: NAVY, fill: { color: PALE }, line: { type: 'none' } });
   }
   EB(s, 'Role', 128, 484, 180); EB(s, 'How', 128, 629, 180); EB(s, 'Outcome', 128, 758, 180);
   T(s, 'Each stage hands a measurable outcome to the next: relevance → understanding → trial → purchase → repeat.', 128, 856, 1664, 40, { px: 24, color: MUTED });
