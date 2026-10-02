@@ -1,0 +1,39 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="fonts.css"><style>html,body{margin:0;padding:0;background:transparent}*{box-sizing:border-box}</style><script src="lib.js"></script></head><body><script>
+const W=760,H=570,F=2;
+let inner='';
+if(F===1){
+  const bubble=(x,y,o)=>`<g opacity="${o}"><rect x="${x}" y="${y}" width="230" height="58" rx="20" fill="#FCFAF4" stroke="#E2DACB" stroke-width="2"/><circle cx="${x+30}" cy="${y+29}" r="14" fill="#CFE6E2"/><rect x="${x+56}" y="${y+18}" width="140" height="9" rx="4.5" fill="#C9C1B1"/><rect x="${x+56}" y="${y+34}" width="96" height="9" rx="4.5" fill="#DDD5C6"/></g>`;
+  inner=`${counterScene(W,H,400)}
+  ${bubble(410,70,0.35)}${bubble(370,150,0.6)}${bubble(420,232,0.85)}
+  ${mug(70,250,0.9)}
+  <g transform="translate(330,440) skewX(-38) scale(1,0.34)">${phoneFaceDown(0,0,1.3)}</g>`;
+}
+if(F===2){
+  inner=`${counterScene(W,H,400)}${plant(560,280,1.0)}${cup(110,226,0.95)}${toothbrush(168,110,0.78,6)}${tube({x:300,y:40,s:0.41})}`;
+}
+if(F===3){
+  const R=150,cx=380,cy=230,circ=2*Math.PI*R;
+  inner=`${counterScene(W,H,430)}
+  <circle cx="${cx}" cy="${cy}" r="${R}" fill="#FCFAF4" stroke="#CFE6E2" stroke-width="18"/>
+  <circle cx="${cx}" cy="${cy}" r="${R}" fill="none" stroke="#1E7C7A" stroke-width="18" stroke-linecap="round" stroke-dasharray="${circ*0.72} ${circ}" transform="rotate(-90 ${cx} ${cy})"/>
+  <text x="${cx}" y="${cy+28}" text-anchor="middle" font-family="DM Sans" font-weight="700" font-size="86" fill="#13294B">2:00</text>
+  <text x="${cx}" y="${cy+70}" text-anchor="middle" font-family="DM Sans" font-weight="600" font-size="20" letter-spacing="3" fill="#1E7C7A">FOR YOU</text>
+  <g transform="translate(150,480) rotate(-90)">${toothbrush(0,0,1.0,0)}</g>
+  <path d="M86,452 q14,-26 34,-6 q16,-24 34,-4 q18,-20 30,4 q-50,22 -98,6z" fill="#FFFFFF" stroke="#CFE6E2" stroke-width="3"/>
+  <path d="M96,452 q40,-14 80,-2" stroke="#8FD0C8" stroke-width="6" fill="none" stroke-linecap="round"/>`;
+}
+if(F===4){
+  inner=`${counterScene(W,H,470)}
+  <circle cx="200" cy="300" r="120" fill="url(#av)"/>
+  <defs><linearGradient id="av" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8FD0C8"/><stop offset="1" stop-color="#9DB39A"/></linearGradient><clipPath id="avc"><circle cx="200" cy="300" r="120"/></clipPath></defs>
+  <g clip-path="url(#avc)"><circle cx="200" cy="268" r="44" fill="#FCFAF4" opacity="0.9"/><ellipse cx="200" cy="420" rx="92" ry="80" fill="#FCFAF4" opacity="0.9"/></g>
+  <circle cx="200" cy="300" r="120" fill="none" stroke="#1E7C7A" stroke-width="6"/>
+  <path d="M360,110 h300 a30,30 0 0 1 30,30 v150 a30,30 0 0 1 -30,30 h-230 l-50,44 l8,-44 h-28 a30,30 0 0 1 -30,-30 v-150 a30,30 0 0 1 30,-30z" fill="#FCFAF4" stroke="#13294B" stroke-width="4"/>
+  <rect x="380" y="150" width="270" height="16" rx="8" fill="#13294B" opacity="0.85"/>
+  <rect x="380" y="186" width="230" height="16" rx="8" fill="#13294B" opacity="0.45"/>
+  <rect x="380" y="222" width="250" height="16" rx="8" fill="#13294B" opacity="0.45"/>
+  <rect x="380" y="258" width="140" height="16" rx="8" fill="#1E7C7A" opacity="0.8"/>
+  <path d="M640 268s-22-13-22-30a12 12 0 0 1 22-7 12 12 0 0 1 22 7c0 17-22 30-22 30z" fill="#1E7C7A"/>`;
+}
+page(W,H,`<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">${inner}</svg>`);
+</script></body></html>

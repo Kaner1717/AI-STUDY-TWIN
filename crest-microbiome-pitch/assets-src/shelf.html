@@ -1,0 +1,27 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="fonts.css"><style>html,body{margin:0;padding:0;background:transparent}*{box-sizing:border-box}</style><script src="lib.js"></script></head><body><script>
+const W=1800,H=1120;
+const gen=['#C9D3DE','#E7C9C6','#D5E3E0','#E9E2CF','#C8CCD6','#DCE6EE','#E5D5E3','#D9DDD0'];
+const box=(x,y,w,h,c,i)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="4" fill="${c}"/><rect x="${x}" y="${y+h*0.18}" width="${w}" height="${h*0.1}" fill="#fff" opacity="0.55"/><circle cx="${x+w/2}" cy="${y+h*0.55}" r="${w*0.22}" fill="#fff" opacity="${0.25+0.1*(i%3)}"/><rect x="${x+w*0.2}" y="${y+h*0.8}" width="${w*0.6}" height="8" rx="4" fill="#fff" opacity="0.5"/><rect x="${x+w-14}" y="${y}" width="14" height="${h}" fill="#000" opacity="0.06"/>`;
+const row=(y0,x0,n,w,h,off)=>[...Array(n)].map((_,i)=>box(x0+i*(w+10),y0-h,w,h,gen[(i+off)%gen.length],i+off)).join('');
+const tag=(x,y)=>`<rect x="${x}" y="${y}" width="90" height="34" rx="4" fill="#FFFFFF"/><rect x="${x+10}" y="${y+10}" width="50" height="6" rx="3" fill="#C9C1B1"/><rect x="${x+10}" y="${y+21}" width="34" height="5" rx="2.5" fill="#DDD5C6"/>`;
+const shelfAt=(y)=>`<rect x="40" y="${y}" width="1720" height="18" fill="#CFC6B6"/><rect x="40" y="${y+18}" width="1720" height="46" fill="#F4F1EA"/>${[120,420,1440,1660].map(x=>tag(x,y+24)).join('')}`;
+page(W,H,`<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
+<rect width="${W}" height="${H}" rx="28" fill="#EFE9DE"/>
+<rect x="40" y="40" width="1720" height="1040" fill="#E6DFD2"/>
+${row(320,70,14,110,230,0)}
+${shelfAt(320)}
+${row(660,70,4,110,240,3)}
+${[0,1,2,3,4,5].map(i=>carton({x:560+i*112,y:660-252,s:0.27})).join('')}
+${row(660,1270,4,110,240,5)}
+${shelfAt(660)}
+<rect x="550" y="676" width="700" height="58" fill="#1E7C7A"/>
+<text x="900" y="716" text-anchor="middle" font-family="DM Sans" font-weight="700" font-size="30" fill="#FCFAF4">Cavity protection. Care for helpful bacteria.</text>
+${row(1000,70,14,110,220,6)}
+${shelfAt(1000)}
+<line x1="1250" y1="734" x2="1250" y2="770" stroke="#13294B" stroke-width="4"/>
+<circle cx="1250" cy="840" r="74" fill="#13294B"/>
+<text x="1250" y="836" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-weight="600" font-size="48" fill="#FCFAF4">New</text>
+<text x="1250" y="872" text-anchor="middle" font-family="DM Sans" font-weight="600" font-size="17" letter-spacing="2" fill="#8FD0C8">MICROBIOME</text>
+<rect x="40" y="40" width="26" height="1040" fill="#CFC6B6"/><rect x="1734" y="40" width="26" height="1040" fill="#CFC6B6"/>
+</svg>`);
+</script></body></html>

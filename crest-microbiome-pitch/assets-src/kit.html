@@ -1,0 +1,34 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="fonts.css"><style>html,body{margin:0;padding:0;background:transparent}*{box-sizing:border-box}</style><script src="lib.js"></script></head><body><script>
+const W=1400,H=1000;
+page(W,H,`<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
+<defs><filter id="bl"><feGaussianBlur stdDeviation="18"/></filter><filter id="sh" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#13294B" flood-opacity="0.22"/></filter></defs>
+<ellipse cx="640" cy="950" rx="560" ry="34" fill="#13294B" opacity="0.18" filter="url(#bl)"/>
+<g transform="rotate(-3 500 500)">
+  <rect x="130" y="70" width="700" height="860" rx="36" fill="#FFFFFF" fill-opacity="0.6" stroke="#13294B" stroke-opacity="0.12" stroke-width="3" filter="url(#sh)"/>
+  ${toothbrush(300,240,1.45,-4,'#1E7C7A')}
+  ${tube({x:380,y:200,s:0.6,rot:4})}
+  <rect x="660" y="560" width="110" height="140" rx="22" fill="#DDE6D7" stroke="#C3CFBC" stroke-width="3"/><rect x="684" y="590" width="62" height="10" rx="5" fill="#9DB39A"/>
+  <rect x="130" y="70" width="700" height="860" rx="36" fill="#FFFFFF" fill-opacity="0.38"/>
+  <rect x="130" y="70" width="700" height="96" rx="36" fill="#FFFFFF" fill-opacity="0.5"/>
+  <rect x="130" y="150" width="700" height="10" fill="#1E7C7A" opacity="0.85"/>
+  <rect x="770" y="136" width="36" height="38" rx="8" fill="#13294B"/>
+  <path d="M170,100 l40,0" stroke="#13294B" stroke-opacity="0.15" stroke-width="6" stroke-linecap="round"/>
+</g>
+<g transform="rotate(-6 860 620)" filter="url(#sh)">
+  <rect x="560" y="440" width="620" height="380" rx="26" fill="#13294B"/>
+  <text x="604" y="510" font-family="DM Sans" font-weight="800" font-size="26" fill="#FCFAF4">Crest <tspan font-family="Cormorant Garamond" font-style="italic" font-weight="600" font-size="30">MicroBiome</tspan></text>
+  <text x="604" y="600" font-family="Cormorant Garamond" font-style="italic" font-weight="600" font-size="58" fill="#FCFAF4">Your first two minutes</text>
+  <text x="604" y="664" font-family="Cormorant Garamond" font-style="italic" font-weight="600" font-size="58" fill="#8FD0C8">start here.</text>
+  <text x="604" y="780" font-family="DM Sans" font-weight="500" font-size="20" fill="#FCFAF4" fill-opacity="0.7">From your dental team</text>
+  ${dots(1095,735,52,24,['#8FD0C8','#9DB39A','#1E7C7A','#FCFAF4'],7)}
+</g>
+<g transform="translate(70,10) rotate(5 1010 860)" filter="url(#sh)">
+  <rect x="780" y="760" width="470" height="200" rx="18" fill="#FCFAF4"/>
+  <rect x="796" y="776" width="438" height="168" rx="12" fill="none" stroke="#1E7C7A" stroke-width="3" stroke-dasharray="10 8"/>
+  <text x="824" y="824" font-family="DM Sans" font-weight="700" font-size="18" letter-spacing="3" fill="#1E7C7A">FIRST-TUBE OFFER</text>
+  <text x="824" y="870" font-family="Cormorant Garamond" font-style="italic" font-weight="600" font-size="36" fill="#13294B">Crest MicroBiome</text>
+  <text x="824" y="910" font-family="DM Sans" font-weight="500" font-size="17" fill="#6B7689">At participating retailers</text>
+  ${qr(1110,800,100,'#13294B','#FCFAF4',11)}
+</g>
+</svg>`);
+</script></body></html>
