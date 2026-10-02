@@ -7,3 +7,7 @@ A 7-minute pitch deck for Crest MicroBiome's Canadian launch (Summer 2027, CAD $
 - `assets-src/` holds the HTML/SVG sources for that art. To re-render one, run `node render.js <scene>.html ../assets/<scene>.png` from that folder. The script needs Playwright and a `fonts.css` file that loads DM Sans and Cormorant Garamond.
 
 The packaging is a concept drawn for this deck, and the QR codes are decorative placeholders. Figures are proposed allocations and illustrative assumptions, and they are labeled that way on the slides.
+
+## PowerPoint
+
+`Crest_MicroBiome_Pitch.pptx` is an editable PowerPoint version of the same 32 slides. Titles use Georgia and body text uses Arial, both of which ship with Office. To rebuild it, run `pptx-src/build.js` with `pptxgenjs`, `react-icons`, `react`, `react-dom` and `sharp` installed.
