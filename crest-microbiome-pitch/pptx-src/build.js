@@ -10,7 +10,7 @@ const A = (f) => __dirname + '/../' + f; // concept art in scratchpad root
 const I = (v) => v / 144;
 const THEME = {
   name: 'Crest MicroBiome', headFontFace: 'Georgia', bodyFontFace: 'Arial',
-  colors: { dk1: '13294B', lt1: 'F7F3EA', dk2: '3E4C63', lt2: 'FCFAF4', accent1: '19706E', accent2: '9DB39A', accent3: '4F6B4C', accent4: 'D6EBE7', accent5: 'E3DDD0', accent6: '8FD0C8', hlink: '19706E', folHlink: '4F6B4C' },
+  colors: { dk1: '0A2463', lt1: 'F7F3EA', dk2: '3E4C63', lt2: 'FCFAF4', accent1: '007A75', accent2: '7BC67E', accent3: '2E7D32', accent4: 'BDEFE7', accent5: 'E3DDD0', accent6: '5EEAD4', hlink: '007A75', folHlink: '2E7D32' },
 };
 const pres = new pptxgen();
 pres.layout = 'LAYOUT_WIDE';
@@ -18,7 +18,7 @@ pres.title = 'Crest MicroBiome Pitch';
 pres.theme = { headFontFace: THEME.headFontFace, bodyFontFace: THEME.bodyFontFace };
 const S = pres.SchemeColor;
 const NAVY = S.text1, BODY = S.text2, IVORY = S.background1, CARD = S.background2, TEAL = S.accent1, SAGE = S.accent2, SAGED = S.accent3, PALE = S.accent4, HAIR = S.accent5, TLIGHT = S.accent6;
-const MUTED = '5F6B7E', NAVY2 = '1D3A66', SAGEPALE = 'E3EADD', CHIPLINE = 'CFC8BA';
+const MUTED = '5F6B7E', NAVY2 = '163A8A', SAGEPALE = 'DDF3D2', CHIPLINE = 'CFC8BA';
 const HEAD = '+mj-lt';
 
 // ---------- layouts ----------
@@ -28,7 +28,7 @@ pres.defineSlideMaster({ title: 'Light statement', background: { path: A('pptx/b
 pres.defineSlideMaster({ title: 'Light title', background: { path: A('pptx/bg-light.png') }, objects: [titlePh(1664, NAVY)], slideNumber: num() });
 pres.defineSlideMaster({ title: 'Light section', background: { path: A('pptx/bg-light.png') }, objects: [titlePh(470, NAVY)], slideNumber: num() });
 pres.defineSlideMaster({ title: 'Teal statement', background: { path: A('pptx/bg-teal.png') } });
-pres.defineSlideMaster({ title: 'Navy divider', background: { color: '13294B' } });
+pres.defineSlideMaster({ title: 'Navy divider', background: { color: '0A2463' } });
 pres.defineSlideMaster({ title: 'Ivory appendix', background: { color: 'F7F3EA' }, objects: [titlePh(1664, NAVY)], slideNumber: num() });
 
 // ---------- helpers ----------
@@ -86,7 +86,7 @@ async function iconData(name, hex) {
 async function ICON(s, name, x, y, d, dark = true) {
   s.addShape(pres.shapes.OVAL, { x: I(x), y: I(y), w: I(d), h: I(d), fill: { color: dark ? NAVY : PALE }, line: { type: 'none' }, objectName: 'icon-bg-' + (++objN) });
   const g = Math.round(d * 0.55);
-  s.addImage({ data: await iconData(name, dark ? 'F7F3EA' : '19706E'), x: I(x + (d - g) / 2), y: I(y + (d - g) / 2), w: I(g), h: I(g), altText: '', objectName: 'icon-' + objN });
+  s.addImage({ data: await iconData(name, dark ? 'F7F3EA' : '007A75'), x: I(x + (d - g) / 2), y: I(y + (d - g) / 2), w: I(g), h: I(g), altText: '', objectName: 'icon-' + objN });
 }
 function mix(fg, a, bg = 'F7F3EA') {
   const p = (h, i) => parseInt(h.slice(i, i + 2), 16);
@@ -132,7 +132,7 @@ function slide(master, section) { return pres.addSlide({ masterName: master, sec
   s = slide('Light statement', 'Opening');
   for (let i = 0; i < 100; i++) {
     const r = Math.floor(i / 10), c = i % 10;
-    s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: I(128 + c * 56.5), y: I(260 + r * 56.5), w: I(51), h: I(51), rectRadius: I(12), fill: { color: i < 89 ? NAVY : 'DCE3D6' }, line: { type: 'none' }, objectName: 'waffle-' + i });
+    s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: I(128 + c * 56.5), y: I(260 + r * 56.5), w: I(51), h: I(51), rectRadius: I(12), fill: { color: i < 89 ? NAVY : 'D4E8CC' }, line: { type: 'none' }, objectName: 'waffle-' + i });
   }
   TAG(s, 'fact', 'Case fact', 808, 317);
   T(s, '89%', 808, 380, 984, 230, { px: 200, bold: true, color: NAVY, charSpacing: -3, lineSpacingMultiple: 1 });
@@ -140,9 +140,9 @@ function slide(master, section) { return pres.addSlide({ masterName: master, sec
   T(s, 'Brushing is an established habit. Awareness of oral microbiome health is low.', 808, 696, 984, 90, { px: 28 });
 
   s = slide('Light statement', 'Opening');
-  const words = [['Whitening', 90, 70, 96, '13294B', 0.18], ['Fresh breath', 700, 60, 60, '19706E', 0.26], ['Enamel care', 1230, 90, 80, '13294B', 0.16], ['Sensitivity relief', 110, 250, 44, '4F6B4C', 0.35], ['Deep clean', 640, 220, 56, '13294B', 0.2], ['Cool mint', 1100, 250, 40, '19706E', 0.3], ['Tartar control', 1420, 270, 52, '4F6B4C', 0.28], ['Gum care', 60, 420, 64, '13294B', 0.18], ['Natural', 130, 560, 48, '19706E', 0.28], ['Fluoride', 70, 680, 40, '4F6B4C', 0.32], ['Advanced', 1580, 400, 72, '13294B', 0.16], ['Charcoal', 1620, 560, 48, '4F6B4C', 0.3], ['Clinical', 1590, 680, 44, '19706E', 0.26], ['Stain removal', 90, 800, 72, '13294B', 0.16], ['Daily protection', 700, 780, 52, '19706E', 0.26], ['Strengthening', 1220, 800, 60, '13294B', 0.18], ['Herbal', 520, 930, 44, '4F6B4C', 0.3], ['Extra fresh', 1000, 920, 56, '13294B', 0.16], ['Complete', 1520, 950, 48, '19706E', 0.26], ['Pro formula', 160, 960, 40, '13294B', 0.2]];
+  const words = [['Whitening', 90, 70, 96, '0A2463', 0.18], ['Fresh breath', 700, 60, 60, '007A75', 0.26], ['Enamel care', 1230, 90, 80, '0A2463', 0.16], ['Sensitivity relief', 110, 250, 44, '2E7D32', 0.35], ['Deep clean', 640, 220, 56, '0A2463', 0.2], ['Cool mint', 1100, 250, 40, '007A75', 0.3], ['Tartar control', 1420, 270, 52, '2E7D32', 0.28], ['Gum care', 60, 420, 64, '0A2463', 0.18], ['Natural', 130, 560, 48, '007A75', 0.28], ['Fluoride', 70, 680, 40, '2E7D32', 0.32], ['Advanced', 1580, 400, 72, '0A2463', 0.16], ['Charcoal', 1620, 560, 48, '2E7D32', 0.3], ['Clinical', 1590, 680, 44, '007A75', 0.26], ['Stain removal', 90, 800, 72, '0A2463', 0.16], ['Daily protection', 700, 780, 52, '007A75', 0.26], ['Strengthening', 1220, 800, 60, '0A2463', 0.18], ['Herbal', 520, 930, 44, '2E7D32', 0.3], ['Extra fresh', 1000, 920, 56, '0A2463', 0.16], ['Complete', 1520, 950, 48, '007A75', 0.26], ['Pro formula', 160, 960, 40, '0A2463', 0.2]];
   for (const [t, x, y, px, c, a] of words) T(s, t, x, y, Math.min(t.length * px * 0.62 + 20, 1910 - x), px * 1.3, { px, bold: true, color: mix(c, a), wrap: false });
-  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: I(360), y: I(335), w: I(1200), h: I(411), rectRadius: I(32), fill: { color: 'FCFAF4', transparency: 6 }, line: { color: 'E3DDD0', width: 0.75 }, shadow: { type: 'outer', color: '13294B', opacity: 0.08, blur: 30, offset: 8, angle: 90 }, objectName: 'perception-panel' });
+  s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: I(360), y: I(335), w: I(1200), h: I(411), rectRadius: I(32), fill: { color: 'FCFAF4', transparency: 6 }, line: { color: 'E3DDD0', width: 0.75 }, shadow: { type: 'outer', color: '0A2463', opacity: 0.08, blur: 30, offset: 8, angle: 90 }, objectName: 'perception-panel' });
   EB(s, 'Consumer perception', 440, 391, 1040, TEAL, 'center');
   T(s, 'To many shoppers, toothpastes can feel interchangeable.', 440, 445, 1040, 160, { px: 64, bold: true, color: NAVY, align: 'center', lineSpacingMultiple: 1.05 });
   T(s, 'The category keeps innovating, yet similar-sounding claims can blur together at the shelf.', 440, 620, 1040, 90, { px: 28, align: 'center' });
@@ -374,7 +374,7 @@ function slide(master, section) { return pres.addSlide({ masterName: master, sec
 
   s = slide('Light title', 'Business Case');
   s.addText('Launch Roadmap', { placeholder: 'title' });
-  const ph = [[128, 'Before launch', SAGED, '9DB39A', 'Preparation', ['Validate claims', 'Recruit creators and clinics', 'Secure retail partners', 'Establish tracking']], [616, 'Summer 2027', TEAL, '19706E', 'Launch', ['Begin the dental pilot', 'Creator content and Meta ads', 'Selected expo tests']], [1328, 'After the pilot', NAVY, '13294B', 'Expansion', ['Scale effective channels', 'Replenish samples', 'Focus on repeat purchase']]];
+  const ph = [[128, 'Before launch', SAGED, '7BC67E', 'Preparation', ['Validate claims', 'Recruit creators and clinics', 'Secure retail partners', 'Establish tracking']], [616, 'Summer 2027', TEAL, '007A75', 'Launch', ['Begin the dental pilot', 'Creator content and Meta ads', 'Selected expo tests']], [1328, 'After the pilot', NAVY, '0A2463', 'Expansion', ['Scale effective channels', 'Replenish samples', 'Focus on repeat purchase']]];
   for (const [x, eb, ec, bar, title, items] of ph) {
     CARDBOX(s, x, 264, 464, 620);
     BOX(s, x + 40, 304, 384, 8, { fill: bar, r: 4 });

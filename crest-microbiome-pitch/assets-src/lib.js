@@ -1,9 +1,9 @@
 // Shared drawing helpers for the Crest MicroBiome concept art.
 const C = {
-  navy: '#13294B', navyDeep: '#0B1A33', navyMid: '#1D3A66', navyTop: '#2B4C7E',
+  navy: '#0A2463', navyDeep: '#061840', navyMid: '#163A8A', navyTop: '#1F4FA8',
   ivory: '#F7F3EA', ivoryLight: '#FCFAF4', ivoryDark: '#E7E0D2',
-  teal: '#1E7C7A', tealLight: '#8FD0C8', tealPale: '#CFE6E2',
-  sage: '#9DB39A', sageLight: '#DDE6D7', sageDark: '#5F7A5C',
+  teal: '#00A19A', tealLight: '#5EEAD4', tealPale: '#BDEFE7',
+  sage: '#7BC67E', sageLight: '#D4F0C4', sageDark: '#3E8E41',
   text: '#3E4C63', muted: '#6B7689',
 };
 let __uid = 0;
@@ -81,7 +81,7 @@ function carton({ x = 0, y = 0, s = 1 } = {}) {
     <linearGradient id="${id}f" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0.10"/><stop offset="0.35" stop-color="#fff" stop-opacity="0.02"/><stop offset="1" stop-color="#000" stop-opacity="0.10"/></linearGradient>
   </defs>
   <polygon points="0,50 320,50 400,14 80,14" fill="${C.navyTop}"/>
-  <polygon points="320,50 400,14 400,884 320,920" fill="#0C1C38"/>
+  <polygon points="320,50 400,14 400,884 320,920" fill="#071B4A"/>
   <polygon points="320,780 400,744 400,884 320,920" fill="#CFC7B7"/>
   <rect x="0" y="50" width="320" height="870" fill="${C.navy}"/>
   <rect x="0" y="780" width="320" height="140" fill="${C.ivory}"/>
