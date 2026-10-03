@@ -205,22 +205,26 @@ function slide(master, section) { return pres.addSlide({ masterName: master, sec
   pres.addSection({ title: 'CREST Framework' });
   s = slide('Light title', 'CREST Framework');
   s.addText('CREST Framework', { placeholder: 'title' });
-  const cw = 284.8, cx = (i) => 320 + i * (cw + 12);
   const names = ['Connect', 'Reveal', 'Experience', 'Shop', 'Thrive'];
   const role = ['Build emotional relevance', 'Explain the difference', 'Encourage trial', 'Convert to purchase', 'Build repeat & community'];
   const how = ['Wellness creators + Meta ads', 'Dentists & hygienists', 'Dental samples + marathon expos', 'Retail links, coupons, shelf', 'Same creators + customer stories'];
   const out = ['Relevance', 'Understanding', 'Trial', 'First purchase', 'Repeat purchase'];
-  const cell = (text, y, h, o) => s.addText(text, { shape: pres.shapes.ROUNDED_RECTANGLE, rectRadius: I(16), x: I(cx(i0)), y: I(y), w: I(cw), h: I(h), margin: [0, 10, 0, 10], valign: 'middle', align: 'center', fit: 'none', wrap: true, objectName: 'crest-cell-' + (++objN), ...o });
-  let i0 = 0;
+  const colX = (i) => 328 + i * 296, colW = 280;
+  EB(s, 'Stage', 128, 388, 184);
   for (let i = 0; i < 5; i++) {
-    i0 = i;
-    cell([{ text: LETTERS[i], options: { fontFace: HEAD, fontSize: 48, bold: true, color: IVORY, breakLine: true } }, { text: names[i], options: { fontSize: 14, bold: true, color: TLIGHT } }], 256, 176, { fill: { color: NAVY }, line: { type: 'none' }, rectRadius: I(20) });
-    cell(role[i], 444, 116, { fontSize: 14, bold: true, color: NAVY, fill: { color: CARD }, line: { color: HAIR, width: 0.75 } });
-    cell(how[i], 572, 150, { fontSize: 14, color: BODY, fill: { color: CARD }, line: { color: HAIR, width: 0.75 } });
-    cell(out[i], 734, 84, { fontSize: 14, bold: true, color: NAVY, fill: { color: PALE }, line: { type: 'none' } });
+    T(s, LETTERS[i], colX(i), 248, colW, 136, { px: 128, fontFace: HEAD, bold: true, color: NAVY, lineSpacingMultiple: 1 });
+    T(s, names[i], colX(i), 388, colW, 40, { px: 28, bold: true, color: TEAL });
   }
-  EB(s, 'Role', 128, 484, 180); EB(s, 'How', 128, 629, 180); EB(s, 'Outcome', 128, 758, 180);
-  T(s, 'Each stage hands a measurable outcome to the next: relevance → understanding → trial → purchase → repeat.', 128, 856, 1664, 40, { px: 24, color: MUTED });
+  const rule = (y, w, c) => s.addShape(pres.shapes.LINE, { x: I(128), y: I(y), w: I(1664), h: 0, line: { color: c, width: w }, objectName: 'rule-' + (++objN) });
+  const rows = [[456, 'Role', role, { bold: true, color: NAVY }], [568, 'How', how, { color: BODY }], [680, 'Outcome', out, { bold: true, color: TEAL }]];
+  rule(452, 1.5, NAVY); rule(564, 0.75, CHIPLINE); rule(676, 0.75, CHIPLINE); rule(772, 1.5, NAVY);
+  for (const [y, lab, items, st] of rows) {
+    EB(s, lab, 128, y + 26, 184);
+    items.forEach((t, i) => T(s, t, colX(i), y + 22, colW, 80, { px: 28, ...st }));
+  }
+  BOX(s, 128, 824, 1664, 100, { fill: NAVY, r: 16 });
+  T(s, 'Each stage hands a measurable outcome to the next', 168, 824, 760, 100, { px: 28, bold: true, color: IVORY, valign: 'middle' });
+  T(s, 'Relevance → Understanding → Trial → First purchase → Repeat purchase', 928, 824, 824, 100, { px: 24, color: TLIGHT, align: 'right', valign: 'middle' });
 
   // Connect: creators
   s = slide('Light section', 'CREST Framework');
