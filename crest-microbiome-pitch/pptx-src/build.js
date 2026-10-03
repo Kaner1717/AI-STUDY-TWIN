@@ -205,17 +205,17 @@ function slide(master, section) { return pres.addSlide({ masterName: master, sec
   pres.addSection({ title: 'CREST Framework' });
   s = slide('Light statement', 'CREST Framework');
   const names = ['Connect', 'Reveal', 'Experience', 'Shop', 'Thrive'];
-  const crows = [['Focus', 400, ['Wellness creators + Meta ads', 'Dentists & hygienists', 'Dental samples + marathon expos', 'Retail links, coupons, shelf', 'Same creators + customer stories'], BODY, false], ['Goal', 616, ['Build emotional relevance', 'Explain the product difference', 'Encourage trial', 'Convert interest to purchase', 'Build repeat & community'], BODY, false], ['Outcome', 832, ['Relevance', 'Understanding', 'Trial', 'First purchase', 'Repeat purchase'], TEAL, true]];
-  const CX = (i) => 248 + i * 327, CW = 300, RH = 196;
-  for (let i = 0; i < 5; i++) s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: I(CX(i)), y: I(56), w: I(CW), h: I(968), rectRadius: I(20), fill: { color: 'FFFFFF', transparency: 45 }, line: { color: 'FFFFFF', width: 0.75 }, objectName: 'crest-col-' + i });
-  for (const [, y] of crows) s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: I(16), y: I(y), w: I(1840), h: I(RH), rectRadius: I(20), fill: { color: 'BDEFE7', transparency: 50 }, line: { type: 'none' }, objectName: 'crest-row-' + y });
+  const crows = [['Focus', 380, ['Wellness creators + Meta ads', 'Dentists & hygienists', 'Dental samples + marathon expos', 'Retail links, coupons, shelf', 'Same creators + customer stories'], BODY, false, 'BDEFE7', 45], ['Goal', 570, ['Build emotional relevance', 'Explain the product difference', 'Encourage trial', 'Convert interest to purchase', 'Build repeat & community'], BODY, false, 'D4F0C4', 40], ['Outcome', 760, ['Relevance', 'Understanding', 'Trial', 'First purchase', 'Repeat purchase'], NAVY, true, '00A19A', 78]];
+  const CX = (i) => 284 + i * 310, CW = 284, RH = 170;
+  for (let i = 0; i < 5; i++) s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: I(CX(i)), y: I(100), w: I(CW), h: I(830), rectRadius: I(20), fill: { color: 'FFFFFF', transparency: 45 }, line: { color: 'FFFFFF', width: 0.75 }, objectName: 'crest-col-' + i });
+  for (const [, y, , , , tint, tr] of crows) s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: I(112), y: I(y), w: I(1696), h: I(RH), rectRadius: I(20), fill: { color: tint, transparency: tr }, line: { type: 'none' }, objectName: 'crest-row-' + y });
   for (let i = 0; i < 5; i++) {
-    T(s, LETTERS[i], CX(i), 100, CW, 160, { px: 150, bold: true, color: NAVY, align: 'center', valign: 'middle', lineSpacingMultiple: 1 });
-    T(s, names[i], CX(i), 290, CW, 50, { px: 40, bold: true, color: NAVY, align: 'center', valign: 'middle' });
+    T(s, LETTERS[i], CX(i), 140, CW, 130, { px: 120, bold: true, color: NAVY, align: 'center', valign: 'middle', lineSpacingMultiple: 1 });
+    T(s, names[i], CX(i), 290, CW, 50, { px: 34, bold: true, color: NAVY, align: 'center', valign: 'middle' });
   }
   for (const [lab, y, items, col, bold] of crows) {
-    s.addText(lab, { x: I(22), y: I(y + RH / 2 - 26), w: I(220), h: I(52), rotate: 270, fontSize: 18, bold: true, color: NAVY, align: 'center', valign: 'middle', margin: 0, isTextBox: true, objectName: 'crest-lab-' + lab });
-    items.forEach((t, i) => T(s, t, CX(i) + 10, y, CW - 20, RH, { px: 32, bold, color: col, align: 'center', valign: 'middle' }));
+    s.addText(lab, { x: I(86), y: I(y + RH / 2 - 24), w: I(200), h: I(48), rotate: 270, fontSize: 16, bold: true, color: NAVY, align: 'center', valign: 'middle', margin: 0, isTextBox: true, objectName: 'crest-lab-' + lab });
+    items.forEach((t, i) => T(s, t, CX(i) + 10, y, CW - 20, RH, { px: 28, bold, color: col, align: 'center', valign: 'middle' }));
   }
 
   // Connect: creators
